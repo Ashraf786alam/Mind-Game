@@ -1,0 +1,131 @@
+<script>
+  $(document).ready(function(){
+    $("#thirdblock").mouseout(function(){
+  var answer=$("#thirdblock").val();
+  var dummy=10
+  if(answer.length!=0){
+  var url='/Quiz/Answer?answer='+answer+'&dummy='+10;
+  alert(url)
+  var req = new XMLHttpRequest();
+  req.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+     if(req.responseText=='true')
+     {
+
+     }
+     if(req.responseText=='false'){
+     }
+
+   }
+  }
+  req.open("GET",url,true);
+  req.send();
+}
+});
+});
+
+function fun(){
+    var number1=$("#firsthiddenblock").val();
+    var number2=$("#secondhiddenblock").val();
+    var number3=$("#hiddenblock").val();
+   var dummy2=20
+  var url='/Quiz/home?number1='+number1+'&number2='+number2+'&number3='+number3+'&dummy2='+dummy2;
+    alert(url)
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+       if(req.responseText=='true')
+       {
+
+      $("#justify-answer-block").css('border','1px solid green')
+        $("#justify-answer-block").css('padding-left','24px')
+      document.getElementById('justify-answer-block').innerHTML="Right Answer"
+       setTimeout(function(){   location.reload(); }, 3000);
+
+
+       }
+       if(req.responseText=='false'){
+
+         $("#justify-answer-block").css('border','1px solid red')
+           $("#justify-answer-block").css('padding-left','24px')
+         document.getElementById('justify-answer-block').innerHTML="Wrong Answer"
+       }
+
+     }
+    }
+    req.open("GET",url, true);
+    req.send();
+   }
+//-----------------------------------------------------------------------------
+   function fun1(){
+       var username=$("#username").val();
+       var email=$("#email").val();
+       var password=$("#password").val();
+        var d=10;
+     var url='/Quiz/signup?username='+username+'&email='+email+'&password='+password+'&d='+d;
+       alert(url)
+       var req = new XMLHttpRequest();
+       req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          if(req.responseText=='true')
+          {
+            document.getElementById("success").innerHTML="ACCOUNT CREATED SUCCESSFULLY"
+            $("#success").css('color','green')
+            $("#check-sign").show();
+          }
+          if(req.responseText=='false'){
+
+          }
+
+        }
+       }
+       req.open("GET",url, true);
+       req.send();
+      }
+//-----------------------------------EMAIL CHECKUP-------------------------------------
+$(document).on('blur',"#email",function(){
+var email=$("#email").val();
+var url='/Quiz/emailcheck?email='+email
+var req = new XMLHttpRequest();
+req.onreadystatechange = function() {
+ if (this.readyState == 4 && this.status == 200) {
+   if(req.responseText=='true')
+   {
+
+    document.getElementById("email-exists").innerHTML="Email Already Exists"
+    $("#email-exists").css('color','red')
+     $("#signup").attr('disabled','true')
+   }
+   if(req.responseText=='false'){
+
+     document.getElementById("email-exists").innerHTML="&#9989"
+     $("#signup").removeAttr('disabled')
+     //alert("Account created Successsfully")
+   }
+
+ }
+}
+req.open("GET",url, true);
+req.send();
+});
+
+$(document).ready(function(){
+  setInterval(hello, 1000);
+})
+var v=0;
+var t=document.getElementById("time").value;
+function hello(){
+  v++;
+  if(t-v>=10)
+  {
+    $("#auto-refresh").css('border','1px solid green')
+
+  }
+  else {
+    $("#auto-refresh").css('border','1px solid red')
+  }
+
+
+  document.getElementById("auto-refresh").innerHTML=t-v;
+}
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+{% load random %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="{{time}}" id="meta">
+    <title>Home Page</title>
+  </head>
+  <body>
+
+    <table>
+      <tr>
+    <td><h3 style="margin-left:600px;color:gray">Hello.. {{username}}</h3></td>
+    <td><h3 style="margin-left:400px;color:gray;">Your Score:</h3></td>
+    <td><div id="score" style="margin-left:10px;border:1px solid lightgray;width:30px;height:30px;font-size:20px;border:1px solid cyan"><center>{{score}}</center></div></td>
+  <td><a href="/Quiz/logout/" style="margin-left:12px; color:gray;font-size:20px;">Logout</a></td>
+</tr>
+</table>
+<input hidden type="number" id="time" value="{{time}}"></input>
+<div style="width:700px; height:350px;border:1px solid lightgray;margin-left:300px;margin-top:70px;border-radius:5px">
+  <table>
+    <tr>
+      <td>
+       <div id="firstblock" style="width:100px;height:80px;border:1px solid lightgray;margin-top:100px;margin-left:100px;border:1px solid cyan">
+            <center><h2>{{num1}}</h2></center>
+           </div>
+        </td>
+        <td>
+           {% if  action_add %}
+          <div id="action" style="width:30px;height:30px;border:1px solid lightgray;margin-top:100px;margin-left:37px">
+             <center><h1 style="margin-top:-6px">{{request.session.add}}</h1></center>
+            </div>
+           {% endif %}
+
+           {% if  action_sub %}
+          <div id="action" style="width:30px;height:30px;border:1px solid lightgray;margin-top:100px;margin-left:37px">
+             <center><h1 style="margin-top:-6px">{{request.session.subs}}</h1></center>
+            </div>
+           {% endif %}
+
+           {% if  action_multiply %}
+          <div id="action" style="width:30px;height:30px;border:1px solid lightgray;margin-top:100px;margin-left:37px">
+             <center><h1 style="margin-top:-6px">{{request.session.multiply}}</h1></center>
+            </div>
+           {% endif %}
+        </td>
+        <td>
+         <div id="secondblock" style="width:100px;height:80px;border:1px solid lightgray;margin-top:100px;margin-left:45px;border:1px solid cyan">
+             <center><h2>{{num2}}</h2></center>
+           </div>
+          </td>
+          <td>
+            <div id="equal" style="width:30px;height:30px;border:1px solid lightgray;margin-top:100px;margin-left:30px">
+               <center><h1 style="margin-top:-6px">=</h1></center>
+              </div>
+
+            </td>
+          <td>
+           <input type="text" id="thirdblock" style="width:100px;height:80px;border:1px solid lightgray;margin-top:100px;font-size:20px;margin-left:45px;padding-left:20px" placeholder="Answer",name="answer">
+            </td>
+        </tr>
+
+        </table>
+           <input hidden type="text" id="firsthiddenblock" value="{{num1}}"></input>
+           <input hidden type="text" id="secondhiddenblock" value="{{num2}}"></input>
+           {% if action_add %}
+           <input hidden type="text" id="hiddenblock" value="{{num1|AddNumber:num2}}"></input>
+           {% endif %}
+
+           {% if action_sub %}
+           <input hidden type="text" id="hiddenblock" value="{{num1|SubNumber:num2}}"></input>
+           {% endif %}
+
+           {% if action_multiply %}
+           <input hidden type="text" id="hiddenblock" value="{{num1|MultiplyNumber:num2}}"></input>
+           {% endif %}
+
+          <input type="submit" value="Submit" id="submitbutton" style="color:green;margin-left:100px;margin-top:40px;height:40px;width:90px" onclick="fun()"></input>
+
+          <div id="justify-answer-block" style="width:170px;height:35px;border:1px solid white;margin-left:200px;margin-top:-39px;padding-top:3px;font-size:20px">
+            </div>
+          <h3 style="margin-left:100px;margin-top:40px">Remaining Time :</h3>
+          <div id="auto-refresh" style="width:40px;height:40px;border:1px solid green;margin-left:257px;margin-top:-55px;border-radius:30px;font-size:25px;padding-top:6px;padding-left:11px"><center></center></div>
+
+  </div>
+  <script src="{% static 'js/jquery.js' %}"></script>
+            {% include "Quiz/jquery.html" %}
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/Quiz/Login/" style="margin-left:1280px;font-size:25px">Login</a>
+    <div style="margin-top:50px">
+
+    <center>
+      <h3>SignUp Form</h3>
+
+    <table>
+    <tr>
+        <td><label for="Username" style="font-size:20px">Username</label></td>
+        <td><input required type="text"  id="username" name="Username" style="width:200px;height:23px;padding-left:10px"></td>
+      </tr>
+      <tr></tr>
+      <tr></tr>
+      <tr></tr>
+      <tr></tr>
+      <tr></tr>
+      <tr></tr>
+      <tr>
+          <td><label for="Email" style="font-size:20px">Email</label></td>
+          <td><input required type="email"  id="email" name="email" style="width:200px;height:23px;padding-left:10px"></td>
+          <td><div id="email-exists"></div>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td><label for="Password" style="font-size:20px">Password</label></td>
+            <td><input required type="password"  id="password" name="password" style="width:200px;height:23px;padding-left:10px"></td>
+          </tr>
+      <tr></tr>
+      <tr></tr>
+      <tr></tr>
+      <tr></tr>
+      <tr></tr>
+      <tr></tr>
+          <tr>
+          <td><label for="Password" style="font-size:20px">Password</label></td>
+          <td><input type="submit" id="signup" value="SignUp" style="width:100px;height:27px" onclick="fun1()"></td>
+         </tr>
+       </table>
+       <br>
+
+       <div id="success"></div>
+       <div id="check-sign" hidden style="width:25px;height:25px;margin-left:300px;margin-top:-20px">&#9989</div>
+      </center>
+      </div>
+      <script src="{% static 'js/jquery.js' %}"></script>
+                {% include "Quiz/jquery.html" %}
+  </body>
+</html>
