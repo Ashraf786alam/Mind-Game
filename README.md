@@ -1,7 +1,7 @@
 # Mind-Game
 Django Web Application
 
-i. An authorized user can play the game.if an anonymous user  try to access the page, we redirect the user to the Login Page. 
+i. Only an authorized user can play the game.if an anonymous user  try to access the page, we redirect the user to the Login Page. 
 
 ii. Two random numbers are generated and displayed on the user screen.User have to perform the operation like Addition,Subtraction,Multiplication on that two numbers in a deadline.
 
