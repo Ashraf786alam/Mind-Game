@@ -9,6 +9,6 @@ iii. Page will reload and regenrate two random numbers once the deadline complet
 
 iv. User can set the deadline(10sec,20sec,30sec...), range of two numbers(20-40,50-100,100-200...), and the operation(Add,Sub,Multiply...).
 
-v. On every right answer user get 1 mark and also 1 mark is deducted on the wrong answer.
+v. On every right answer user get 1 mark and also 1 mark is deducted on every wrong answer.
 
 vi. Marks of the user stored in the Database.
